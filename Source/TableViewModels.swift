@@ -9,29 +9,29 @@
 import UIKit
 import RxSwift
 
-public class TableViewSectionModel : Equatable {
+public class TableViewSectionModel: Equatable {
 	internal var rx_events = PublishSubject<String>()
 	private var disposeBag = DisposeBag()
 	
 	public let identity: String
 	public var cells: [TableViewCellModel]
 	
-	public var headerText : String? {
+	public var headerText: String? {
 		didSet {
 			self.rx_events.onNext("headerText")
 		}
 	}
-	public var headerView : TableViewHeaderFooterViewModel? {
+	public var headerView: TableViewHeaderFooterViewModel? {
 		didSet {
 			self.rx_events.onNext("headerView")
 		}
 	}
-	public var footerText : String? {
+	public var footerText: String? {
 		didSet {
 			self.rx_events.onNext("footerText")
 		}
 	}
-	public var footerView : TableViewHeaderFooterViewModel? {
+	public var footerView: TableViewHeaderFooterViewModel? {
 		didSet {
 			self.rx_events.onNext("footerView")
 		}
@@ -55,7 +55,7 @@ public func == (lhs: TableViewSectionModel, rhs: TableViewSectionModel) -> Bool 
 }
 
 public class TableViewHeaderFooterViewModel {
-	public var estimatedHeight : CGFloat = 44
+	public var estimatedHeight: CGFloat = 44
 	
 	public init() {}
 	
@@ -69,22 +69,20 @@ public class TableViewHeaderFooterViewModel {
 	}
 }
 
-public class TableViewCellModel : Equatable {
+public class TableViewCellModel: Equatable {
 	public let identity: String
 	
-	public var selectionAction : (() -> ())? {
-		didSet {
-			if let _ = self.selectionAction {
-				self.accessoryType = .DisclosureIndicator
-			} else {
-				self.accessoryType = .None
-			}
-		}
-	}
-	public var accessoryType : UITableViewCellAccessoryType = .None
+	public var estimatedHeight: CGFloat = 44
+	public var selectionAction: (() -> ())?
+	public var accessoryType: UITableViewCellAccessoryType = .None
 	
-	public init(identity: String) {
+	public init(identity: String, selectionAction: (() -> ())? = nil) {
 		self.identity = identity
+		self.selectionAction = selectionAction
+		
+		if let _ = self.selectionAction {
+			self.accessoryType = .DisclosureIndicator
+		}
 	}
 	
 	public func createCell(tableView tableView: UITableView, indexPath: NSIndexPath) -> UITableViewCell {

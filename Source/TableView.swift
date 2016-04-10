@@ -71,6 +71,12 @@ public class ModeledDataSource: NSObject, UITableViewDelegate {
 		tableView.dataSource = nil
 		tableView.delegate = nil
 		
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+		tableView.estimatedSectionHeaderHeight = UITableViewAutomaticDimension
+		tableView.estimatedSectionFooterHeight = UITableViewAutomaticDimension
+		tableView.estimatedSectionFooterHeight = UITableViewAutomaticDimension
+		
 		let dataSource = RxTableViewSectionedAnimatedDataSource<_Section>()
 		dataSource.configureCell = { (dataSource, tableView, indexPath, item) -> UITableViewCell in
 			return self.cellModelAtIndexPath(indexPath).configureCell(tableView: tableView, indexPath: indexPath)
@@ -108,6 +114,10 @@ public class ModeledDataSource: NSObject, UITableViewDelegate {
 	}
 	public func reloadSectionViews() {
 		self.onSectionReload()
+	}
+	
+	public func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return self.cellModelAtIndexPath(indexPath).estimatedHeight
 	}
 	
 	public func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
