@@ -17,8 +17,18 @@ public class TableViewSectionModel: Equatable {
 	public var cells: [TableViewCellModel]
 	
 	public var headerText: String? {
-		didSet {
-			self.rx_events.onNext("headerText")
+		get {
+			if let headerView = self.headerView as? TitleHeaderFooterViewModel {
+				return headerView.title
+			}
+			return nil
+		}
+		set (newValue) {
+			if let newValue = newValue {
+				self.headerView = TitleHeaderFooterViewModel(headerViewForTitle: newValue)
+			} else if self.headerText != nil {
+				self.headerView = nil
+			}
 		}
 	}
 	public var headerView: TableViewHeaderFooterViewModel? {
@@ -26,9 +36,20 @@ public class TableViewSectionModel: Equatable {
 			self.rx_events.onNext("headerView")
 		}
 	}
+	
 	public var footerText: String? {
-		didSet {
-			self.rx_events.onNext("footerText")
+		get {
+			if let footerView = self.footerView as? TitleHeaderFooterViewModel {
+				return footerView.title
+			}
+			return nil
+		}
+		set (newValue) {
+			if let newValue = newValue {
+				self.footerView = TitleHeaderFooterViewModel(footerViewForTitle: newValue)
+			} else if self.headerText != nil {
+				self.footerView = nil
+			}
 		}
 	}
 	public var footerView: TableViewHeaderFooterViewModel? {
@@ -43,10 +64,18 @@ public class TableViewSectionModel: Equatable {
 		}
 		self.identity = identity
 		self.cells = cells
-		self.headerText = headerText
-		self.footerText = footerText
-		self.headerView = headerView
-		self.footerView = footerView
+		
+		if headerView != nil {
+			self.headerView = headerView
+		} else if headerText != nil {
+			self.headerText = headerText
+		}
+		
+		if footerView != nil {
+			self.footerView = footerView
+		} else if footerText != nil {
+			self.footerText = footerText
+		}
 	}
 }
 

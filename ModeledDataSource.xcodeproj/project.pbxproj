@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6625FAF81CC2F8230038D216 /* TableViewObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6625FAF71CC2F8230038D216 /* TableViewObjects.swift */; };
 		66458FD01CB3BA9E00C8A0AB /* ModeledDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 66458FCF1CB3BA9E00C8A0AB /* ModeledDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		66458FD71CB3BA9E00C8A0AB /* ModeledDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66458FCC1CB3BA9E00C8A0AB /* ModeledDataSource.framework */; };
 		66458FDC1CB3BA9E00C8A0AB /* ModeledDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66458FDB1CB3BA9E00C8A0AB /* ModeledDataSourceTests.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		4326C54B6472A7A0FD5F99C2 /* Pods-ModeledDataSource.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModeledDataSource.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ModeledDataSource/Pods-ModeledDataSource.debug.xcconfig"; sourceTree = "<group>"; };
 		5963D7AABDEC7622E54FFC5F /* Pods_ModeledDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModeledDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6625FAF71CC2F8230038D216 /* TableViewObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewObjects.swift; sourceTree = "<group>"; };
 		66458FCC1CB3BA9E00C8A0AB /* ModeledDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModeledDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66458FCF1CB3BA9E00C8A0AB /* ModeledDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModeledDataSource.h; sourceTree = "<group>"; };
 		66458FD11CB3BA9E00C8A0AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				66458FE81CB3BAF100C8A0AB /* TableView.swift */,
 				66458FE91CB3BAF100C8A0AB /* TableViewModels.swift */,
+				6625FAF71CC2F8230038D216 /* TableViewObjects.swift */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				66458FEA1CB3BAF100C8A0AB /* TableView.swift in Sources */,
 				66B5C1EB1CBBA67C00726CD1 /* MapView.swift in Sources */,
 				66458FEB1CB3BAF100C8A0AB /* TableViewModels.swift in Sources */,
+				6625FAF81CC2F8230038D216 /* TableViewObjects.swift in Sources */,
 				66B5C1F11CBBA6A800726CD1 /* MapViewModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
